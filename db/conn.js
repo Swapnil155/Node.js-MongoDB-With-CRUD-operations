@@ -1,10 +1,12 @@
 const  mongoose  = require("mongoose");
+const { logger } = require("../logger/logger");
+require('dotenv').config();
 
-
-mongoose.connect('mongodb://localhost:27017/Demo', {
+mongoose.connect(process.env.DB, {
 
 }).then(()=>{
     console.log("Connection Bulid")
+    logger.info("Connection Bulid")
 }).catch((e)=>{
-    console.log(e)
+    logger.info(e)
 })
